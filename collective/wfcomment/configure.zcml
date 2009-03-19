@@ -1,0 +1,21 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="collective.wfcomment">
+
+    <gs:registerProfile
+        name="default"
+        title="Workflow comments"
+        description="Require users to enter a comment before making a workflow transition"
+        directory="profiles/default"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+    
+    <browser:resource
+        name="collective.wfcomment.js"
+        file="comments.js"
+        />
+
+</configure>

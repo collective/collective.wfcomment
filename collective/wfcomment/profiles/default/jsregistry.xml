@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+
+ <javascript cacheable="True" compression="none" cookable="True" inline="False"
+    enabled="True" expression="" id="++resource++collective.wfcomment.js" />
+
+</object>
