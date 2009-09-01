@@ -13,7 +13,7 @@
     
     $('#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]').each(function() {
          $(this).click(function() {
-            var comment = prompt("Please enter a comment for this state change.");
+            var comment = prompt("Please enter a comment for this state change.", "");
             if(comment != null) {
                 var href = $(this).attr('href');
                 var baseHref = href.substring(0, href.indexOf('?'));
