@@ -2,8 +2,11 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:gs="http://namespaces.zope.org/genericsetup"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.wfcomment">
+
+    <i18n:registerTranslations directory="locales" />
 
     <gs:registerProfile
         name="default"

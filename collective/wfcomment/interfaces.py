@@ -18,6 +18,6 @@ class IWorkflowCommentSettings(Interface):
 
     transitions = schema.Text(title=_(u"Transitions enabled"),
         description=_(u"If comment popup is not enabled for all transitions, "
-                       "it will be enabled for this specific transitions"),
+                       "it will be enabled for this specific transitions."),
         required=False,
         )
