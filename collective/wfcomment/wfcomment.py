@@ -118,7 +118,7 @@ class WfCommentForm(form.AddForm):
 class WfCommentView(FormWrapper, grok.View):
     grok.name("content_status_comment")
     grok.context(IATContentType)
-    grok.require('cmf.RequestReview')
+    grok.require('zope2.View')
     form = WfCommentForm
 
     def __init__(self, context, request):
