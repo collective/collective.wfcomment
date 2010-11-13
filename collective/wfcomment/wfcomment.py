@@ -31,7 +31,8 @@ class WfCommentViewlet(grok.Viewlet):
                 transitions = frozenset(settings.transitions.split('\n'))
             else:
                 transitions = ()
-            transitions_expr = u", ".join(['#workflow-transition-%s' % t for t in transitions])
+            transitions_expr = u", ".join(
+                ['#workflow-transition-%s' % t for t in transitions])
         else:
             transitions_expr = u'#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]'
         return u"""
@@ -105,7 +106,7 @@ class WfCommentForm(form.AddForm):
                 self.context.absolute_url(),
                 data['workflow_action'],
                 data['comment'].strip()))
-    
+
     @button.buttonAndHandler(_(u'Cancel'), name='cancel')
     def handleCancel(self, action):
         self._finishedAdd = True

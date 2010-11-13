@@ -5,10 +5,10 @@ version = '1.0b3'
 
 setup(name='collective.wfcomment',
       version=version,
-      description="Require ausers to enter a comment with each workflow transition",
+      description="Require ausers to enter a comment with "
+                  "each workflow transition",
       long_description=open("README.txt").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from five import grok
-from zope import schema
 
 from plone.app.registry.browser import controlpanel
 from Products.CMFPlone.interfaces import IPloneSiteRoot
