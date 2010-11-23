@@ -1,3 +1,5 @@
+import urllib
+
 from five import grok
 
 from zope import schema
@@ -101,11 +103,20 @@ class WfCommentForm(form.AddForm):
             self.status = self.formErrorsMessage
             return
         self._finishedAdd = True
+
+        comment = data['comment'].strip()
+        try:
+            comment = comment.encode('utf-8')
+        except UnicodeDecodeError:
+            pass
+        
+        params = urllib.urlencode({'workflow_action': data['workflow_action'],
+                                   'comment': comment})
         self.next_url = (
-            u"%s/content_status_modify?workflow_action=%s&comment=%s" % (
+            "%s/content_status_modify?%s" % (
                 self.context.absolute_url(),
-                data['workflow_action'],
-                data['comment'].strip()))
+                params,
+                ))
 
     @button.buttonAndHandler(_(u'Cancel'), name='cancel')
     def handleCancel(self, action):
