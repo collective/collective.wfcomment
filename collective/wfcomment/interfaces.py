@@ -6,14 +6,14 @@ from collective.wfcomment import _
 
 class IWorkflowCommentSettings(Interface):
 
-    enable_for_all_transitions = schema.Bool(
-        title=_(u"Enable comment for all transitions"),
-        default=True,
-        )
-
     comment_required = schema.Bool(
         title=_(u"Comment required"),
         default=False,
+        )
+
+    enable_for_all_transitions = schema.Bool(
+        title=_(u"Enable comment for all transitions"),
+        default=True,
         )
 
     transitions = schema.Text(title=_(u"Transitions enabled"),

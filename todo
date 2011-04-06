@@ -2,4 +2,4 @@ delete five.grok dependency
 declare dependencies
 create configlet
 tests
-upgrade step from 1.0b1 to 2 to remove the js file
+use vocabulary for transitions

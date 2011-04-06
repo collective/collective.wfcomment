@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0b3'
+version = '2.0'
 
 setup(name='collective.wfcomment',
       version=version,
@@ -29,5 +29,9 @@ setup(name='collective.wfcomment',
           # 'Plone',
       ],
       entry_points="""
+      # -*- Entry points: -*-
+
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )

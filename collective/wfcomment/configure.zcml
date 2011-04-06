@@ -16,11 +16,6 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-    
-    <browser:resource
-        name="collective.wfcomment.js"
-        file="comments.js"
-        />
 
     <include package="five.grok" />
     <grok:grok package="." />

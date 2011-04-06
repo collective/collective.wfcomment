@@ -1,0 +1,9 @@
+Changelog
+=========
+
+2.0 (unreleased)
+----------------
+
+- Complete rewrite using ajax internationalized form,
+  and allowing to select a list of transitions.
+  [vincentfretin, thomasdesvenain]
