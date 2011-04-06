@@ -24,7 +24,7 @@ class WfCommentViewlet(ViewletBase):
         enable_for_all_transitions = settings.enable_for_all_transitions
         if not enable_for_all_transitions:
             if settings.transitions:
-                transitions = frozenset(settings.transitions.split('\n'))
+                transitions = settings.transitions
             else:
                 transitions = ()
             transitions_expr = u", ".join(

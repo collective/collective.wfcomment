@@ -16,15 +16,18 @@ class IWorkflowCommentSettings(Interface):
         default=True,
         )
 
-    transitions = schema.Text(title=_(u"Transitions enabled"),
+    transitions = schema.Set(title=_(u"Transitions enabled"),
         description=_(u"If comment popup is not enabled for all transitions, "
                        "it will be enabled for this specific transitions."),
         required=False,
+        value_type=schema.Choice(vocabulary="plone.app.vocabularies.WorkflowTransitions"),
         )
+
 
 class IWfCommentControlPanel(Interface):
     """Control panel view
     """
+
 
 class IComment(Interface):
 
