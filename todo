@@ -1,5 +1,4 @@
 delete five.grok dependency
 declare dependencies
-create configlet
 tests
 use vocabulary for transitions

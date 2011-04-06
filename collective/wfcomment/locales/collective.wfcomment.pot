@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-11-10 18:23+0000\n"
+"POT-Creation-Date: 2011-04-06 15:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.wfcomment\n"
 
-#: ../wfcomment.py:109
+#: ../wfcomment.py:121
 msgid "Cancel"
 msgstr ""
 
-#: ../wfcomment.py:71
+#: ../wfcomment.py:74
 msgid "Comment"
 msgstr ""
 
-#: ../interfaces.py:15
+#: ../interfaces.py:10
 msgid "Comment required"
 msgstr ""
 
-#: ../interfaces.py:10
+#: ../interfaces.py:15
 msgid "Enable comment for all transitions"
 msgstr ""
 
@@ -37,11 +37,11 @@ msgstr ""
 msgid "If comment popup is not enabled for all transitions, it will be enabled for this specific transitions."
 msgstr ""
 
-#: ../wfcomment.py:72
+#: ../wfcomment.py:75
 msgid "Please enter a comment for this state change."
 msgstr ""
 
-#: ../wfcomment.py:96
+#: ../wfcomment.py:99
 msgid "Save"
 msgstr ""
 
@@ -49,16 +49,20 @@ msgstr ""
 msgid "Transitions enabled"
 msgstr ""
 
-#: ../wfcomment.py:67
+#: ../wfcomment.py:70
 msgid "Workflow action"
 msgstr ""
 
-#: ../controlpanel.py:15
+#: ../controlpanel.py:14
 msgid "Workflow comment settings"
 msgstr ""
 
+#: ../profiles/default/controlpanel.xml
+msgid "Workflow comments"
+msgstr ""
+
 #. Default: "You can set here some options related to the workflow comment feature."
-#: ../controlpanel.py:16
+#: ../controlpanel.py:15
 msgid "help_wfcomment_settings_editform"
 msgstr ""
 
