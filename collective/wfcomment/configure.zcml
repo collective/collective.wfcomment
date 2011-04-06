@@ -6,6 +6,8 @@
     xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.wfcomment">
 
+    <include package="plone.app.controlpanel" />
+
     <i18n:registerTranslations directory="locales" />
 
     <gs:registerProfile
@@ -17,7 +19,26 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
-    <include package="five.grok" />
-    <grok:grok package="." />
+    <browser:viewlet
+        name="collective.wfcomment.javascript"
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".wfcomment.WfCommentViewlet"
+        permission="zope2.View"
+        />
+
+    <browser:view
+        name="content_status_comment"
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        class=".wfcomment.WfCommentView"
+        permission="zope2.View"
+        />
+
+    <browser:view
+        name="wfcomment-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.WfCommentControlPanel"
+        permission="plone.app.controlpanel.Types"
+        />
 
 </configure>

@@ -25,8 +25,9 @@ setup(name='collective.wfcomment',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'z3c.form',
           'plone.app.registry',
-          # 'Plone',
+          'plone.z3cform',
       ],
       entry_points="""
       # -*- Entry points: -*-

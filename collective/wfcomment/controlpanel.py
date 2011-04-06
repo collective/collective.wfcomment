@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-from five import grok
+from zope.interface import implements
 
 from plone.app.registry.browser import controlpanel
-from Products.CMFPlone.interfaces import IPloneSiteRoot
+from Products.Five.browser import BrowserView
 
-from collective.wfcomment.interfaces import IWorkflowCommentSettings
+from collective.wfcomment.interfaces import (
+    IWorkflowCommentSettings, IWfCommentControlPanel)
 from collective.wfcomment import _
 
 
@@ -17,12 +18,11 @@ class ControlPanelEditForm(controlpanel.RegistryEditForm):
                              "workflow comment feature.")
 
 
-class WfCommentControlPanel(controlpanel.ControlPanelFormWrapper, grok.View):
-    grok.name('wfcomment-controlpanel')
-    grok.context(IPloneSiteRoot)
-    grok.require('cmf.ManagePortal')
+class WfCommentControlPanel(controlpanel.ControlPanelFormWrapper, BrowserView):
     form = ControlPanelEditForm
 
+    implements(IWfCommentControlPanel)
+
     def __init__(self, context, request):
-        grok.View.__init__(self, context, request)
+        BrowserView.__init__(self, context, request)
         controlpanel.ControlPanelFormWrapper.__init__(self, context, request)

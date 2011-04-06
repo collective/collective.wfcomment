@@ -1,4 +1,2 @@
-delete five.grok dependency
-declare dependencies
 tests
 use vocabulary for transitions

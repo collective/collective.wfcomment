@@ -21,3 +21,18 @@ class IWorkflowCommentSettings(Interface):
                        "it will be enabled for this specific transitions."),
         required=False,
         )
+
+class IWfCommentControlPanel(Interface):
+    """Control panel view
+    """
+
+class IComment(Interface):
+
+    workflow_action = schema.Text(
+        title=_(u"Workflow action"),
+        required=True)
+
+    comment = schema.Text(
+        title=_(u"Comment"),
+        description=_(u"Please enter a comment for this state change."),
+        required=False)

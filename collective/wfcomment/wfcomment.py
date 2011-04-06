@@ -1,28 +1,22 @@
 import urllib
 
-from five import grok
-
-from zope import schema
 from zope.component import getUtility
-from zope.interface import Interface
 from z3c.form import form, button
 from z3c.form.field import Fields
 from z3c.form.interfaces import HIDDEN_MODE
 
 from plone.z3cform.layout import FormWrapper
 from plone.registry.interfaces import IRegistry
-from plone.app.layout.viewlets.interfaces import IHtmlHeadLinks
+from plone.app.layout.viewlets.common import ViewletBase
+from Products.Five.browser import BrowserView
 
-from Products.ATContentTypes.interfaces import IATContentType
-from collective.wfcomment.interfaces import IWorkflowCommentSettings
+from collective.wfcomment.interfaces import IWorkflowCommentSettings, IComment
 from collective.wfcomment import _
 
 
 # change in a transition url:
 # %(content_url)s/content_status_history?workflow_action=reject
-class WfCommentViewlet(grok.Viewlet):
-    grok.context(IATContentType)
-    grok.viewletmanager(IHtmlHeadLinks)
+class WfCommentViewlet(ViewletBase):
 
     def render(self):
         registry = getUtility(IRegistry)
@@ -64,18 +58,6 @@ $('#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_comme
 """ % {'transitions_expr': transitions_expr}
 
 
-class IComment(Interface):
-
-    workflow_action = schema.Text(
-        title=_(u"Workflow action"),
-        required=True)
-
-    comment = schema.Text(
-        title=_(u"Comment"),
-        description=_(u"Please enter a comment for this state change."),
-        required=False)
-
-
 class WfCommentForm(form.AddForm):
     fields = Fields(IComment)
     fields['workflow_action'].mode = HIDDEN_MODE
@@ -109,7 +91,7 @@ class WfCommentForm(form.AddForm):
             comment = comment.encode('utf-8')
         except UnicodeDecodeError:
             pass
-        
+
         params = urllib.urlencode({'workflow_action': data['workflow_action'],
                                    'comment': comment})
         self.next_url = (
@@ -127,12 +109,9 @@ class WfCommentForm(form.AddForm):
         return self.next_url
 
 
-class WfCommentView(FormWrapper, grok.View):
-    grok.name("content_status_comment")
-    grok.context(IATContentType)
-    grok.require('zope2.View')
+class WfCommentView(FormWrapper, BrowserView):
     form = WfCommentForm
 
     def __init__(self, context, request):
-        grok.View.__init__(self, context, request)
+        BrowserView.__init__(self, context, request)
         FormWrapper.__init__(self, context, request)
