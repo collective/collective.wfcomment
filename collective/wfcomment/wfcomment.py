@@ -12,13 +12,18 @@ from Products.Five.browser import BrowserView
 
 from collective.wfcomment.interfaces import IWorkflowCommentSettings, IComment
 from collective.wfcomment import _
+from plone.app.kss.content_replacer import ContentMenuView
+from kss.core.actionwrapper import kssaction
+from Products.DCWorkflow.interfaces import IAfterTransitionEvent
+from kss.core.interfaces import IKSSView
+from kss.core.pluginregistry.commandset import getRegisteredCommandSet
 
 
 # change in a transition url:
 # %(content_url)s/content_status_history?workflow_action=reject
 class WfCommentViewlet(ViewletBase):
 
-    def render(self):
+    def js_code(self):
         registry = getUtility(IRegistry)
         settings = registry.forInterface(IWorkflowCommentSettings)
         enable_for_all_transitions = settings.enable_for_all_transitions
@@ -32,30 +37,42 @@ class WfCommentViewlet(ViewletBase):
         else:
             transitions_expr = u'#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]'
         return u"""
-<script type="text/javascript">
-jQuery(function($){
+        var wfcomment_update = function(){
+            $('.contentViews').change(function(){alert('test')});
+            $('%(transitions_expr)s').each(function(){
+                var href = $(this).attr('href');
+                var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
+                $(this).attr('href', newhref);
+                $(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
+                $(this).prepOverlay({
+                        subtype: 'ajax',
+                        filter: common_content_filter,
+                        formselector: 'form',
+                        noform: 'reload',
+                        closeselector: '[name=form.buttons.cancel]'
+                        });
+            });
+        };
+        """ % {'transitions_expr': transitions_expr}
 
-$('%(transitions_expr)s').each(function() {
-    var href = $(this).attr('href');
-    var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
-    $(this).attr('href', newhref);
-    $(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
-}
-);
+    def render(self):
+        return """
+    <script id="wfcomment-js" type="text/javascript">
+      %s
+      window.setTimeout(wfcomment_update, 2000);
+    </script>
+    """ % self.js_code()
 
-$('#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_comment]').prepOverlay(
-        {
-            subtype: 'ajax',
-            filter: common_content_filter,
-            formselector: 'form',
-            noform: 'reload',
-            closeselector: '[name=form.buttons.cancel]'
-        }
-    );
 
-});
-</script>
-""" % {'transitions_expr': transitions_expr}
+class WfCommentKssViewlet(WfCommentViewlet):
+
+    def render(self):
+        return """
+    <script id="wfcomment-js" type="text/javascript">
+      %s
+      jQuery(wfcomment_update);
+    </script>
+    """ % self.js_code()
 
 
 class WfCommentForm(form.AddForm):
@@ -115,3 +132,12 @@ class WfCommentView(FormWrapper, BrowserView):
     def __init__(self, context, request):
         BrowserView.__init__(self, context, request)
         FormWrapper.__init__(self, context, request)
+
+from zope.component import adapter
+@adapter(None, IKSSView, IAfterTransitionEvent)
+def workflowTriggersJsReload(obj, view, event):
+    if not (event.old_state is event.new_state):
+        zopecommands = getRegisteredCommandSet('zope').provides(view)
+        ksscore = getRegisteredCommandSet('core').provides(view)
+        selector = ksscore.getCssSelector('#wfcomment-js')
+        zopecommands.refreshViewlet(selector, 'plone.contentviews', 'collective.wfcomment.javascript')

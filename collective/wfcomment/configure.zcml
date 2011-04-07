@@ -19,26 +19,41 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
 
+    <!-- add javascript in the plone.contentviews viewletmanager
+         that is reload by changeWorkflowState kss method
+     -->
     <browser:viewlet
         name="collective.wfcomment.javascript"
+        view="zope.interface.Interface"
         for="Products.ATContentTypes.interfaces.IATContentType"
-        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        manager="plone.app.layout.viewlets.interfaces.IContentViews"
         class=".wfcomment.WfCommentViewlet"
         permission="zope2.View"
         />
 
-    <browser:view
+    <browser:viewlet
+        name="collective.wfcomment.javascript"
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        view="kss.core.interfaces.IKSSView"
+        manager="plone.app.layout.viewlets.interfaces.IContentViews"
+        class=".wfcomment.WfCommentViewlet"
+        permission="zope2.View"
+        />
+
+    <browser:page
         name="content_status_comment"
         for="Products.ATContentTypes.interfaces.IATContentType"
         class=".wfcomment.WfCommentView"
         permission="zope2.View"
         />
 
-    <browser:view
+    <browser:page
         name="wfcomment-controlpanel"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".controlpanel.WfCommentControlPanel"
         permission="plone.app.controlpanel.Types"
         />
+
+    <subscriber handler=".wfcomment.workflowTriggersJsReload"/>
 
 </configure>

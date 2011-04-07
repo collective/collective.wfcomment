@@ -4,6 +4,9 @@ Changelog
 2.0 (unreleased)
 ----------------
 
-- Complete rewrite using ajax internationalized form,
-  and allowing to select a list of transitions.
+Complete rewrite :
+
+  * uses ajax internationalized form,
+  * allows to select a list of transitions,
+  * kss compliant.
   [vincentfretin, thomasdesvenain]
