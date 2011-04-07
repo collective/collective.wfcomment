@@ -6,54 +6,54 @@
     xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.wfcomment">
 
-    <include package="plone.app.controlpanel" />
+  <include package="plone.app.controlpanel" />
 
-    <i18n:registerTranslations directory="locales" />
+  <i18n:registerTranslations directory="locales" />
 
-    <gs:registerProfile
-        name="default"
-        title="Workflow comments"
-        description="Require users to enter a comment before making a workflow transition"
-        directory="profiles/default"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-        />
+  <gs:registerProfile
+      name="default"
+      title="Workflow comments"
+      description="Require users to enter a comment before making a workflow transition"
+      directory="profiles/default"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
-    <!-- add javascript in the plone.contentviews viewletmanager
-         that is reload by changeWorkflowState kss method
-     -->
-    <browser:viewlet
-        name="collective.wfcomment.javascript"
-        view="zope.interface.Interface"
-        for="Products.ATContentTypes.interfaces.IATContentType"
-        manager="plone.app.layout.viewlets.interfaces.IContentViews"
-        class=".wfcomment.WfCommentViewlet"
-        permission="zope2.View"
-        />
+  <!-- add javascript in the plone.contentviews viewletmanager
+       that is reload by changeWorkflowState kss method
+   -->
+  <browser:viewlet
+      name="collective.wfcomment.javascript"
+      view="zope.interface.Interface"
+      for="Products.ATContentTypes.interfaces.IATContentType"
+      manager="plone.app.layout.viewlets.interfaces.IContentViews"
+      class=".wfcomment.WfCommentViewlet"
+      permission="zope2.View"
+      />
 
-    <browser:viewlet
-        name="collective.wfcomment.javascript"
-        for="Products.ATContentTypes.interfaces.IATContentType"
-        view="kss.core.interfaces.IKSSView"
-        manager="plone.app.layout.viewlets.interfaces.IContentViews"
-        class=".wfcomment.WfCommentViewlet"
-        permission="zope2.View"
-        />
+  <browser:viewlet
+      name="collective.wfcomment.javascript"
+      for="Products.ATContentTypes.interfaces.IATContentType"
+      view="kss.core.interfaces.IKSSView"
+      manager="plone.app.layout.viewlets.interfaces.IContentViews"
+      class=".wfcomment.WfCommentViewlet"
+      permission="zope2.View"
+      />
 
-    <browser:page
-        name="content_status_comment"
-        for="Products.ATContentTypes.interfaces.IATContentType"
-        class=".wfcomment.WfCommentView"
-        permission="zope2.View"
-        />
+  <browser:page
+      name="content_status_comment"
+      for="Products.ATContentTypes.interfaces.IATContentType"
+      class=".wfcomment.WfCommentView"
+      permission="zope2.View"
+      />
 
-    <browser:page
-        name="wfcomment-controlpanel"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        class=".controlpanel.WfCommentControlPanel"
-        permission="plone.app.controlpanel.Types"
-        />
+  <browser:page
+      name="wfcomment-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".controlpanel.WfCommentControlPanel"
+      permission="plone.app.controlpanel.Types"
+      />
 
-    <subscriber handler=".wfcomment.workflowTriggersJsReload"/>
+  <subscriber handler=".wfcomment.workflowTriggersJsReload"/>
 
 </configure>

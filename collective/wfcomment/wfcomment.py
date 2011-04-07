@@ -1,6 +1,6 @@
 import urllib
 
-from zope.component import getUtility
+from zope.component import getUtility, adapter
 from z3c.form import form, button
 from z3c.form.field import Fields
 from z3c.form.interfaces import HIDDEN_MODE
@@ -9,14 +9,12 @@ from plone.z3cform.layout import FormWrapper
 from plone.registry.interfaces import IRegistry
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
-
-from collective.wfcomment.interfaces import IWorkflowCommentSettings, IComment
-from collective.wfcomment import _
-from plone.app.kss.content_replacer import ContentMenuView
-from kss.core.actionwrapper import kssaction
 from Products.DCWorkflow.interfaces import IAfterTransitionEvent
 from kss.core.interfaces import IKSSView
 from kss.core.pluginregistry.commandset import getRegisteredCommandSet
+
+from collective.wfcomment.interfaces import IWorkflowCommentSettings, IComment
+from collective.wfcomment import _
 
 
 # change in a transition url:
@@ -133,7 +131,7 @@ class WfCommentView(FormWrapper, BrowserView):
         BrowserView.__init__(self, context, request)
         FormWrapper.__init__(self, context, request)
 
-from zope.component import adapter
+
 @adapter(None, IKSSView, IAfterTransitionEvent)
 def workflowTriggersJsReload(obj, view, event):
     if not (event.old_state is event.new_state):
