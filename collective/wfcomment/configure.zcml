@@ -29,6 +29,7 @@
       manager="plone.app.layout.viewlets.interfaces.IContentViews"
       class=".wfcomment.WfCommentViewlet"
       permission="zope2.View"
+      layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
       />
 
   <browser:viewlet
@@ -38,6 +39,7 @@
       manager="plone.app.layout.viewlets.interfaces.IContentViews"
       class=".wfcomment.WfCommentViewlet"
       permission="zope2.View"
+      layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
       />
 
   <browser:page

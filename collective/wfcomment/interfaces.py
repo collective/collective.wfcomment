@@ -39,3 +39,8 @@ class IComment(Interface):
         title=_(u"Comment"),
         description=_(u"Please enter a comment for this state change."),
         required=False)
+
+
+class IWorkflowCommentBrowserLayer(Interface):
+    """Browser layer for installed collective.wfcomment
+    """
