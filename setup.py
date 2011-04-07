@@ -5,10 +5,9 @@ version = '2.0'
 
 setup(name='collective.wfcomment',
       version=version,
-      description="Require ausers to enter a comment with "
-                  "each workflow transition",
+      description="Add a prompt on selected workflow transitions for the user to enter a comment",
       long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open("CHANGES.txt").read(),
       classifiers=[
         "Framework :: Plone",
         "Programming Language :: Python",

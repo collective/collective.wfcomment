@@ -7,3 +7,14 @@ transition from the 'state' drop-down in a standard Plone site.
 
 The handler will only be used for workflow actions using the standard
 `content_status_modify` script.
+
+You can restrict this behaviour on some transitions through a control panel.
+
+You can make the comment required or not.
+
+Credits
+-------
+
+* Martin Aspeli, release 1.0
+
+* Vincent Fretin and Thomas Desvenain, release 2.0
