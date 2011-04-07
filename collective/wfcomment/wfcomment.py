@@ -57,7 +57,7 @@ class WfCommentViewlet(ViewletBase):
         return """
     <script id="wfcomment-js" type="text/javascript">
       %s
-      window.setTimeout(wfcomment_update, 2000);
+      window.setTimeout(wfcomment_update, 1500);
     </script>
     """ % self.js_code()
 
