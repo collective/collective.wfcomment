@@ -101,7 +101,8 @@ class WfCommentForm(form.AddForm):
             return
         self._finishedAdd = True
 
-        comment = data['comment'].strip()
+        comment = data['comment'] or u""
+        comment = comment.strip()
         try:
             comment = comment.encode('utf-8')
         except UnicodeDecodeError:
