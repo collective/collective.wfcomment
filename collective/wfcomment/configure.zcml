@@ -6,7 +6,7 @@
     xmlns:grok="http://namespaces.zope.org/grok"
     i18n_domain="collective.wfcomment">
 
-  <include package="plone.app.controlpanel" />
+  <include package="Products.CMFCore" file="permissions.zcml" />
 
   <i18n:registerTranslations directory="locales" />
 
@@ -53,7 +53,7 @@
       name="wfcomment-controlpanel"
       for="Products.CMFPlone.interfaces.IPloneSiteRoot"
       class=".controlpanel.WfCommentControlPanel"
-      permission="plone.app.controlpanel.Types"
+      permission="cmf.ManagePortal"
       />
 
   <subscriber handler=".wfcomment.workflowTriggersJsReload"/>
