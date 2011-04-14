@@ -12,6 +12,12 @@ You can restrict this behaviour on some transitions through a control panel.
 
 You can make the comment required or not.
 
+Requirements
+------------
+
+- Plone 4.0+ (tested under Plone 4.0 and 4.1).
+- Tested with ie6, ie7, ff3, ff4, chrome.
+
 Credits
 -------
 

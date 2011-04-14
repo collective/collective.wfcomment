@@ -36,12 +36,12 @@ class WfCommentViewlet(ViewletBase):
             transitions_expr = u'#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]'
         return u"""
         var wfcomment_update = function(){
-            $('a%(transitions_expr)s').each(function(){
-                var href = $(this).attr('href');
+            jQuery('a%(transitions_expr)s').each(function(){
+                var href = jQuery(this).attr('href');
                 var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
-                $(this).attr('href', newhref);
-                $(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
-                $(this).prepOverlay({
+                jQuery(this).attr('href', newhref);
+                jQuery(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
+                jQuery(this).prepOverlay({
                         subtype: 'ajax',
                         filter: common_content_filter,
                         formselector: 'form',
