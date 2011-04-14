@@ -1,0 +1,3 @@
+#plone-contentmenu-workflow dd.actionMenuContent a:click {
+    action-client: wfcommentUpdate;
+}

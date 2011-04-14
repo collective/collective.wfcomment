@@ -26,18 +26,8 @@
       name="collective.wfcomment.javascript"
       view="zope.interface.Interface"
       for="Products.ATContentTypes.interfaces.IATContentType"
-      manager="plone.app.layout.viewlets.interfaces.IContentViews"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
       class=".wfcomment.WfCommentViewlet"
-      permission="zope2.View"
-      layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
-      />
-
-  <browser:viewlet
-      name="collective.wfcomment.javascript"
-      for="Products.ATContentTypes.interfaces.IATContentType"
-      view="kss.core.interfaces.IKSSView"
-      manager="plone.app.layout.viewlets.interfaces.IContentViews"
-      class=".wfcomment.WfCommentKssViewlet"
       permission="zope2.View"
       layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
       />
@@ -56,6 +46,9 @@
       permission="cmf.ManagePortal"
       />
 
-  <subscriber handler=".wfcomment.workflowTriggersJsReload"/>
+  <browser:resource
+      name="wfcomment.kss"
+      file="wfcomment.kss"
+      />
 
 </configure>

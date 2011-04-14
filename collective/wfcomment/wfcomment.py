@@ -50,6 +50,10 @@ class WfCommentViewlet(ViewletBase):
                         });
             });
         };
+
+        kukit.actionsGlobalRegistry.register("wfcommentUpdate", function(){
+            window.setTimeout(wfcomment_update, 2000)});
+
         """ % {'transitions_expr': transitions_expr}
 
     def render(self):
@@ -57,17 +61,6 @@ class WfCommentViewlet(ViewletBase):
     <script id="wfcomment-js" type="text/javascript">
       %s
       jQuery(wfcomment_update);
-    </script>
-    """ % self.js_code()
-
-
-class WfCommentKssViewlet(WfCommentViewlet):
-
-    def render(self):
-        return """
-    <script id="wfcomment-js" type="text/javascript">
-      %s
-      window.setTimeout(wfcomment_update, 1500);
     </script>
     """ % self.js_code()
 
@@ -131,11 +124,3 @@ class WfCommentView(FormWrapper, BrowserView):
         BrowserView.__init__(self, context, request)
         FormWrapper.__init__(self, context, request)
 
-
-@adapter(None, IKSSView, IAfterTransitionEvent)
-def workflowTriggersJsReload(obj, view, event):
-    if not (event.old_state is event.new_state):
-        zopecommands = getRegisteredCommandSet('zope').provides(view)
-        ksscore = getRegisteredCommandSet('core').provides(view)
-        selector = ksscore.getCssSelector('#wfcomment-js')
-        zopecommands.refreshViewlet(selector, 'plone.contentviews', 'collective.wfcomment.javascript')
