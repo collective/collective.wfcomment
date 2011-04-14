@@ -36,8 +36,7 @@ class WfCommentViewlet(ViewletBase):
             transitions_expr = u'#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]'
         return u"""
         var wfcomment_update = function(){
-            $('.contentViews').change(function(){alert('test')});
-            $('%(transitions_expr)s').each(function(){
+            $('a%(transitions_expr)s').each(function(){
                 var href = $(this).attr('href');
                 var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
                 $(this).attr('href', newhref);
@@ -57,7 +56,7 @@ class WfCommentViewlet(ViewletBase):
         return """
     <script id="wfcomment-js" type="text/javascript">
       %s
-      window.setTimeout(wfcomment_update, 1500);
+      jQuery(wfcomment_update);
     </script>
     """ % self.js_code()
 
@@ -68,7 +67,7 @@ class WfCommentKssViewlet(WfCommentViewlet):
         return """
     <script id="wfcomment-js" type="text/javascript">
       %s
-      jQuery(wfcomment_update);
+      window.setTimeout(wfcomment_update, 1500);
     </script>
     """ % self.js_code()
 

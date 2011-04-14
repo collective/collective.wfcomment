@@ -37,7 +37,7 @@
       for="Products.ATContentTypes.interfaces.IATContentType"
       view="kss.core.interfaces.IKSSView"
       manager="plone.app.layout.viewlets.interfaces.IContentViews"
-      class=".wfcomment.WfCommentViewlet"
+      class=".wfcomment.WfCommentKssViewlet"
       permission="zope2.View"
       layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
       />
