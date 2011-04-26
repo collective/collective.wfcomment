@@ -50,13 +50,17 @@ class WfCommentViewlet(ViewletBase):
                         });
             });
         };
-
-        kukit.actionsGlobalRegistry.register("wfcommentUpdate", function(){
-            window.setTimeout(wfcomment_update, 2000)});
-
+        var kukit;
+        if(kukit != undefined){
+            kukit.actionsGlobalRegistry.register("wfcommentUpdate", function(){
+                window.setTimeout(wfcomment_update, 2000)});
+        }
         """ % {'transitions_expr': transitions_expr}
 
     def render(self):
+        if self.context.unrestrictedTraverse('@@plone_portal_state').anonymous():
+            return u""
+
         return """
     <script id="wfcomment-js" type="text/javascript">
       %s
