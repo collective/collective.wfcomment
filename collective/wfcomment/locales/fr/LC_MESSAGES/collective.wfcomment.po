@@ -1,0 +1,66 @@
+# Vincent Fretin <vincent.fretin@gmail.com>, 2010
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.wfcomment\n"
+"POT-Creation-Date: 2011-04-06 15:58+0000\n"
+"PO-Revision-Date: 2010-11-10 19:23+0100\n"
+"Last-Translator: Vincent Fretin <vincent.fretin@gmail.com>\n"
+"Language-Team: French <plone-fr@lists.plone.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.wfcomment\n"
+
+#: ../wfcomment.py:121
+msgid "Cancel"
+msgstr "Annuler"
+
+#: ../wfcomment.py:74
+msgid "Comment"
+msgstr "Commentaire"
+
+#: ../interfaces.py:10
+msgid "Comment required"
+msgstr "Commentaire requis"
+
+#: ../interfaces.py:15
+msgid "Enable comment for all transitions"
+msgstr "Activer le commentaire sur toutes les transitions"
+
+#: ../interfaces.py:20
+msgid "If comment popup is not enabled for all transitions, it will be enabled for this specific transitions."
+msgstr "Si le commentaire n'est pas activé pour toutes les transitions, alors il sera activé seulement pour les transitions listées spécifiquement ici."
+
+#: ../wfcomment.py:75
+msgid "Please enter a comment for this state change."
+msgstr "Veuillez saisir un commentaire pour ce changement d'état."
+
+#: ../wfcomment.py:99
+msgid "Save"
+msgstr "Enregistrer"
+
+#: ../interfaces.py:19
+msgid "Transitions enabled"
+msgstr "Transitions activées"
+
+#: ../wfcomment.py:70
+msgid "Workflow action"
+msgstr "Action de workflow"
+
+#: ../controlpanel.py:14
+msgid "Workflow comment settings"
+msgstr "Paramètres pour le commentaire de workflow"
+
+#: ../profiles/default/controlpanel.xml
+msgid "Workflow comments"
+msgstr "Commentaires de workflow"
+
+#. Default: "You can set here some options related to the workflow comment feature."
+#: ../controlpanel.py:15
+msgid "help_wfcomment_settings_editform"
+msgstr "Vous pouvez définir ici les options liées à la fonctionnalité de commentaire de workflow."
+
