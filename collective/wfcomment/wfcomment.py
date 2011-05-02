@@ -31,12 +31,12 @@ class WfCommentViewlet(ViewletBase):
             else:
                 transitions = ()
             transitions_expr = u", ".join(
-                ['#workflow-transition-%s' % t for t in transitions])
+                ['a#workflow-transition-%s' % t for t in transitions])
         else:
             transitions_expr = u'#plone-contentmenu-workflow dd.actionMenuContent a[href*=content_status_modify]'
         return u"""
         var wfcomment_update = function(){
-            jQuery('a%(transitions_expr)s').each(function(){
+            jQuery('%(transitions_expr)s').each(function(){
                 var href = jQuery(this).attr('href');
                 var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
                 jQuery(this).attr('href', newhref);

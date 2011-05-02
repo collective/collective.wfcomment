@@ -4,6 +4,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- fix when 'all transitions' option is selected.
+  [thomasdesvenain]
+
 - fix plone.app.registry dependency
   [toutpt]
 
