@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '²'
+version = '2.0.1dev'
 
 setup(name='collective.wfcomment',
       version=version,
