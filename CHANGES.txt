@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.2 (unreleased)
+2.0.2 (2011-05-02)
 ------------------
 
 - controlpanel: hide transition selection if 'all transitions' option is selected.
