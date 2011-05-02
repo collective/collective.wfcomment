@@ -4,6 +4,9 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- controlpanel: hide transition selection if 'all transitions' option is selected.
+  [thomasdesvenain]
+
 - fix when 'all transitions' option is selected.
   [thomasdesvenain]
 

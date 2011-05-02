@@ -47,6 +47,15 @@
       permission="cmf.ManagePortal"
       />
 
+  <browser:viewlet
+      name="collective.wfcomment.controlpaneljs"
+      view=".interfaces.IWfCommentControlPanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+      class=".controlpanel.WfCommentControlPanelJS"
+      permission="zope2.View"
+      />
+
   <browser:resource
       name="wfcomment.kss"
       file="wfcomment.kss"
