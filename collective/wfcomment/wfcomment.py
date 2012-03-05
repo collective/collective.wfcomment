@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 import urllib
 
 from zope.component import getUtility, adapter
@@ -42,19 +43,12 @@ class WfCommentViewlet(ViewletBase):
                 jQuery(this).attr('href', newhref);
                 jQuery(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
                 jQuery(this).prepOverlay({
-                        subtype: 'ajax',
-                        filter: common_content_filter,
-                        formselector: 'form',
-                        noform: 'reload',
-                        closeselector: '[name=form.buttons.cancel]'
-                        });
+                    subtype: 'ajax',
+                    filter: common_content_filter,
+                    closeselector: '[name=form.buttons.cancel]'
+                    });
             });
         };
-        var kukit;
-        if(kukit != undefined){
-            kukit.actionsGlobalRegistry.register("wfcommentUpdate", function(){
-                window.setTimeout(wfcomment_update, 2000)});
-        }
         """ % {'transitions_expr': transitions_expr}
 
     def render(self):

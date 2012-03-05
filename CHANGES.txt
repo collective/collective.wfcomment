@@ -1,6 +1,12 @@
 Changelog
 =========
 
+2.1 (Unreleased)
+----------------
+
+- Full jquery: kss behaviours entirely replaced.
+  [thomasdesvenain]
+
 2.0.2 (2011-05-02)
 ------------------
 

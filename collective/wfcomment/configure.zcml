@@ -56,9 +56,4 @@
       permission="zope2.View"
       />
 
-  <browser:resource
-      name="wfcomment.kss"
-      file="wfcomment.kss"
-      />
-
 </configure>
