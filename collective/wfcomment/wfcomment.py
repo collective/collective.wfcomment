@@ -38,11 +38,14 @@ class WfCommentViewlet(ViewletBase):
         return u"""
         var wfcomment_update = function(){
             jQuery('%(transitions_expr)s').each(function(){
-                var href = jQuery(this).attr('href');
-                var newhref = href.substring(0, href.indexOf('content_status_modify')) + 'content_status_comment' + href.substring(href.indexOf('?'));
-                jQuery(this).attr('href', newhref);
-                jQuery(this).attr('class', "kssIgnore"); // TODO: this is not enough, we need to unbind the kss event
-                jQuery(this).prepOverlay({
+                var action = jQuery(this);
+                var href = action.attr('href');
+                var newhref = href.substring(0, href.indexOf('content_status_modify'));
+                newhref += 'content_status_comment' + href.substring(href.indexOf('?'));
+                action.attr('href', newhref);
+                action.unbind('click');
+                action.attr('class', "kssIgnore");
+                action.prepOverlay({
                     subtype: 'ajax',
                     filter: common_content_filter,
                     closeselector: '[name=form.buttons.cancel]'
