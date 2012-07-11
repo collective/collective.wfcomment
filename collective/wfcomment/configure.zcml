@@ -56,4 +56,12 @@
       permission="zope2.View"
       />
 
+    <gs:upgradeStep
+        title="Upgrade collective.wfcomment"
+        description="upgrade step"
+        source="2"
+        destination="3"
+        handler=".upgrades.upgrade_2_3"
+        profile="collective.wfcomment:default"/>
+
 </configure>

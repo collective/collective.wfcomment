@@ -5,6 +5,7 @@ Changelog
 ----------------
 
 - Full jquery: kss behaviours entirely replaced.
+  Fixes under 4.1.x
   [thomasdesvenain]
 
 2.0.2 (2011-05-02)
