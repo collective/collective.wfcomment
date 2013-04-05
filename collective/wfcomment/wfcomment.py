@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 import urllib
 
-from zope.component import getUtility, adapter
+from zope.component import getUtility
 from z3c.form import form, button
 from z3c.form.field import Fields
 from z3c.form.interfaces import HIDDEN_MODE
@@ -10,9 +10,6 @@ from plone.z3cform.layout import FormWrapper
 from plone.registry.interfaces import IRegistry
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
-from Products.DCWorkflow.interfaces import IAfterTransitionEvent
-from kss.core.interfaces import IKSSView
-from kss.core.pluginregistry.commandset import getRegisteredCommandSet
 
 from collective.wfcomment.interfaces import IWorkflowCommentSettings, IComment
 from collective.wfcomment import _
