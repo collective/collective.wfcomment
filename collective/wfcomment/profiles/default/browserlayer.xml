@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <!-- register a specific layer which allow views/viewlets only available for this product -->
+    <layer name="collective.wfcomment"
+           interface="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer" />
+</layers>
