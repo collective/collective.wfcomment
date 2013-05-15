@@ -7,6 +7,9 @@ Changelog
 - Move from svn to collective, merge tdesvenain's remote repo into collective.
   Please maintain in collective in future.  [saily]
 
+- Restructure buildout for Plone 4.3 and Plone 4.2.
+  [saily]
+
 
 2.1.2 (2013-04-18)
 ------------------
