@@ -1,7 +1,14 @@
 Changelog
 =========
 
-2.1.2 (unreleased)
+2.1.3 (unreleased)
+------------------
+
+- Move from svn to collective, merge tdesvenain's remote repo into collective.
+  Please maintain in collective in future.  [saily]
+
+
+2.1.2 (2013-04-18)
 ------------------
 
 - Really removed kss dependency (unused imports)

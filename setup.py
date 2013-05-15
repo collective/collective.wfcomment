@@ -1,19 +1,22 @@
 from setuptools import setup, find_packages
 import os
 
-version = '2.1.2.dev0'
+version = '2.1.3.dev0'
 
 setup(name='collective.wfcomment',
       version=version,
-      description="Add a prompt on selected workflow transitions for the user to enter a comment",
-      long_description=open("README.rst").read() + "\n" +
-                       open("CHANGES.rst").read() + "\n" +
-                       open("docs/INSTALL.txt").read(),
+      description="Add a prompt on selected workflow transitions for the user "
+                  "to enter a comment",
+      long_description="\n".join([
+          open("README.rst").read(),
+          open("CHANGES.rst").read(),
+          open("docs/INSTALL.txt").read(),
+      ]),
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+          "Topic :: Software Development :: Libraries :: Python Modules",
+      ],
       keywords='Plone workflow comment',
       author='Thomas Desvenain',
       author_email='thomas.desvenain@gmail.com',
