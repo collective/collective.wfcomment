@@ -32,6 +32,11 @@ setup(name='collective.wfcomment',
           'plone.app.registry',
           'plone.z3cform',
       ],
+      extras_require={
+          'test': [
+#              'plone.app.testing[robot]>=4.2.2',
+          ],
+      },
       entry_points="""
       # -*- Entry points: -*-
 
