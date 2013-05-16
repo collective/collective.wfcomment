@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.3 (unreleased)
+2.1.3 (2013-05-16)
 ------------------
 
 - Add tests using robotframework, travis integration and .
