@@ -23,10 +23,11 @@ Languages
 
 - English
 - French
+- German
 
 Credits
 -------
 
-* Martin Aspeli, release 1.0
-
-* Vincent Fretin and Thomas Desvenain, release 2.0
+- Martin Aspeli, release 1.0
+- Vincent Fretin and Thomas Desvenain, release 2.0
+- Daniel Widerin  [saily]
