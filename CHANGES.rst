@@ -4,6 +4,9 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
+- 'form.buttons.cancel' in ``prepOverlay`` closeselector has to be in quotes
+  to avoid unrecognized expression javascript errors.  [saily]
+
 - Move from svn to collective, merge tdesvenain's remote repo into collective.
   Please maintain in collective in future.  [saily]
 

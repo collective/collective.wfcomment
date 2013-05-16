@@ -45,7 +45,7 @@ class WfCommentViewlet(ViewletBase):
                 action.prepOverlay({
                     subtype: 'ajax',
                     filter: common_content_filter,
-                    closeselector: '[name=form.buttons.cancel]'
+                    closeselector: '[name="form.buttons.cancel"]'
                     });
             });
         };
