@@ -4,6 +4,9 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
+- Add german translations and add an ``update_translations`` script to be
+  generated through buildout.  [saily]
+
 - 'form.buttons.cancel' in ``prepOverlay`` closeselector has to be in quotes
   to avoid unrecognized expression javascript errors.  [saily]
 
