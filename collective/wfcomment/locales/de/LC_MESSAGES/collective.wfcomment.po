@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: collective.wfcomment\n"
 "POT-Creation-Date: 2011-04-06 15:58+0000\n"
-"PO-Revision-Date: 2013-05-16 10:06+0100\n"
+"PO-Revision-Date: 2013-05-16 11:39+0100\n"
 "Last-Translator: Daniel Widerin <daniel@widerin.net>\n"
 "Language-Team: German <plone-de@lists.plone.org>\n"
 "MIME-Version: 1.0\n"
@@ -30,11 +30,15 @@ msgstr "Kommentar erforderlich"
 
 #: ../interfaces.py:15
 msgid "Enable comment for all transitions"
-msgstr "Erzwinge Kommentare für alle Statusänderungen"
+msgstr "Kommentare für alle Statusänderungen"
 
 #: ../interfaces.py:20
-msgid "If comment popup is not enabled for all transitions, it will be enabled for this specific transitions."
-msgstr "Wenn der PopUp Dialog nicht für alle Übergänge aktiviert ist, wird er nur für die ausgewählten Übergänge angezeigt."
+msgid ""
+"If comment popup is not enabled for all transitions, it will be enabled for "
+"this specific transitions."
+msgstr ""
+"Wählen Sie die Statusänderungen für die der Kommentar-Dialog angezeigt "
+"werden soll."
 
 #: ../wfcomment.py:75
 msgid "Please enter a comment for this state change."
@@ -54,7 +58,7 @@ msgstr "Aktion für Arbeitsablauf"
 
 #: ../controlpanel.py:14
 msgid "Workflow comment settings"
-msgstr "Einstellungen für Kommentare in Arbeitsabläufen"
+msgstr "Kommentare für Arbeitsabläufe"
 
 #: ../profiles/default/controlpanel.xml
 msgid "Workflow comments"
@@ -64,4 +68,3 @@ msgstr "Kommentare für Arbeitsabläufe"
 #: ../controlpanel.py:15
 msgid "help_wfcomment_settings_editform"
 msgstr "Einstellungen für Kommentare in Arbeitsabläufen ändern"
-
