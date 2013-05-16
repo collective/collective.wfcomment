@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/collective/collective.wfcomment.png?branch=master
+   :target: https://travis-ci.org/collective/collective.wfcomment
+
 Introduction
 ============
 
@@ -15,7 +18,7 @@ You can make the comment required or not.
 Requirements
 ------------
 
-- Plone 4.0+ (tested under Plone 4.0 and 4.1).
+- Plone 4.0+ (tested under Plone 4.0, 4.1, 4.2 and 4.3).
 - Tested with ie6, ie7, ff3, ff4, chrome.
 
 Languages

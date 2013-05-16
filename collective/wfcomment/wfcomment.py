@@ -44,7 +44,7 @@ class WfCommentViewlet(ViewletBase):
                 action.attr('class', "kssIgnore");
                 action.prepOverlay({
                     subtype: 'ajax',
-                    filter: common_content_filter,
+                    filter: '#content #form',
                     closeselector: '[name="form.buttons.cancel"]'
                     });
             });
