@@ -4,7 +4,16 @@ Changelog
 2.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Split up robottests into ``keywords.robot`` which is reusable in your
+  tests, by adding::
+
+    *** Settings ***
+    Resource    plone/app/robotframework/selenium.robot
+    Resource    plone/app/robotframework/keywords.robot
+    Resource    collective/wfcomment/tests/robot/keywords.robot
+    ...
+
+  [saily]
 
 
 2.1.4 (2013-05-17)
