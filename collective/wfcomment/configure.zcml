@@ -4,57 +4,76 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.wfcomment">
 
-  <include package="Products.CMFCore" file="permissions.zcml" />
-  <include package="plone.app.registry" />
+    <include package="Products.CMFCore" file="permissions.zcml" />
+    <include package="plone.app.registry" />
 
-  <i18n:registerTranslations directory="locales" />
+    <i18n:registerTranslations directory="locales" />
 
-  <gs:registerProfile
-      name="default"
-      title="Workflow comments"
-      description="Require users to enter a comment before making a workflow transition"
-      directory="profiles/default"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+    <gs:registerProfile
+        name="default"
+        title="Workflow comments"
+        description="Require users to enter a comment before making a workflow transition"
+        directory="profiles/default"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
 
-  <!-- add javascript in the plone.contentviews viewletmanager
-       that is reload by changeWorkflowState kss method
-   -->
-  <browser:viewlet
-      name="collective.wfcomment.javascript"
-      view="zope.interface.Interface"
-      for="Products.ATContentTypes.interfaces.IATContentType"
-      manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
-      class=".wfcomment.WfCommentViewlet"
-      permission="zope2.View"
-      layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
-      />
+    <!-- Register viewlet for Archetypes content -->
+    <browser:viewlet
+        name="collective.wfcomment.javascript"
+        view="zope.interface.Interface"
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".wfcomment.WfCommentViewlet"
+        permission="zope2.View"
+        layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
+        />
 
-  <browser:page
-      name="content_status_comment"
-      for="Products.ATContentTypes.interfaces.IATContentType"
-      class=".wfcomment.WfCommentView"
-      permission="zope2.View"
-      />
+    <browser:page
+        name="content_status_comment"
+        for="Products.ATContentTypes.interfaces.IATContentType"
+        class=".wfcomment.WfCommentView"
+        permission="zope2.View"
+        />
 
-  <browser:page
-      name="wfcomment-controlpanel"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      class=".controlpanel.WfCommentControlPanel"
-      permission="cmf.ManagePortal"
-      />
+    <!-- Register viewlet for dexterity content -->
+    <browser:viewlet
+        name="collective.wfcomment.javascript"
+        view="zope.interface.Interface"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".wfcomment.WfCommentViewlet"
+        permission="zope2.View"
+        layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
+        zcml:condition="installed plone.dexterity"
+        />
 
-  <browser:viewlet
-      name="collective.wfcomment.controlpaneljs"
-      view=".interfaces.IWfCommentControlPanel"
-      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-      manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
-      class=".controlpanel.WfCommentControlPanelJS"
-      permission="zope2.View"
-      />
+    <browser:page
+        name="content_status_comment"
+        for="plone.dexterity.interfaces.IDexterityContent"
+        class=".wfcomment.WfCommentView"
+        permission="zope2.View"
+        zcml:condition="installed plone.dexterity"
+        />
+
+    <browser:page
+        name="wfcomment-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".controlpanel.WfCommentControlPanel"
+        permission="cmf.ManagePortal"
+        />
+
+    <browser:viewlet
+        name="collective.wfcomment.controlpaneljs"
+        view=".interfaces.IWfCommentControlPanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+        class=".controlpanel.WfCommentControlPanelJS"
+        permission="zope2.View"
+        />
 
     <gs:upgradeStep
         title="Upgrade collective.wfcomment"

@@ -4,7 +4,8 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add support for dexterity content types.
+  [saily]
 
 
 2.1.3 (2013-05-16)
