@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.4 (unreleased)
+2.1.4 (2013-05-17)
 ------------------
 
 - Add a new test and remove unneeded ones.
