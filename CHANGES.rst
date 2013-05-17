@@ -4,6 +4,9 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
+- Add a new test and remove unneeded ones.
+  [saily]
+
 - Add support for dexterity content types.
   [saily]
 
