@@ -28,7 +28,7 @@
         for="Products.ATContentTypes.interfaces.IATContentType"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class=".wfcomment.WfCommentViewlet"
-        permission="zope2.View"
+        permission="cmf.ModifyPortalContent"
         layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
         />
 
@@ -36,7 +36,7 @@
         name="content_status_comment"
         for="Products.ATContentTypes.interfaces.IATContentType"
         class=".wfcomment.WfCommentView"
-        permission="zope2.View"
+        permission="cmf.ModifyPortalContent"
         />
 
     <!-- Register viewlet for dexterity content -->
@@ -46,7 +46,7 @@
         for="plone.dexterity.interfaces.IDexterityContent"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class=".wfcomment.WfCommentViewlet"
-        permission="zope2.View"
+        permission="cmf.ModifyPortalContent"
         layer="collective.wfcomment.interfaces.IWorkflowCommentBrowserLayer"
         zcml:condition="installed plone.dexterity"
         />
@@ -55,7 +55,7 @@
         name="content_status_comment"
         for="plone.dexterity.interfaces.IDexterityContent"
         class=".wfcomment.WfCommentView"
-        permission="zope2.View"
+        permission="cmf.ModifyPortalContent"
         zcml:condition="installed plone.dexterity"
         />
 
@@ -72,7 +72,7 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
         class=".controlpanel.WfCommentControlPanelJS"
-        permission="zope2.View"
+        permission="cmf.ManagePortal"
         />
 
     <gs:upgradeStep
