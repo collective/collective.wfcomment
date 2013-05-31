@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.1.5 (unreleased)
+2.1.5 (2013-05-31)
 ------------------
 
 - Split up robottests into ``keywords.robot`` which is reusable in your
