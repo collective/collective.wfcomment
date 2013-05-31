@@ -14,10 +14,10 @@ the workflow comment dialog should open
     Wait until keyword succeeds  5  0.5  Element Should Be Visible  css=div.overlay #form
 
 i hit the cancel button
-    Click Button  Cancel
+    Click Button  name=form.buttons.cancel
 
 i hit the save button
-    Click Button  Save
+    Click Button  name=form.buttons.save
 
 the workflow comment dialog should close
     Wait until keyword succeeds  5  0.5  Element Should Not Be Visible  css=div.overlay #form
@@ -26,7 +26,6 @@ workflow transition should not be triggered
     Element Should Be Visible  css=span.state-private
 
 workflow transition should be triggered
-    Page should contain    Item state changed
     Element Should Be Visible  css=span.state-pending
 
 i enter a workflow comment

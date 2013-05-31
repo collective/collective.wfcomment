@@ -15,6 +15,10 @@ Changelog
 
   [saily]
 
+- Use id or name selectors to make ``keywords.robot`` more generic and
+  reuseable for any languages.
+  [saily]
+
 
 2.1.4 (2013-05-17)
 ------------------
