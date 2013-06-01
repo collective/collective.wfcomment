@@ -19,10 +19,10 @@ You can make the comment required or not.
 Screenshot
 ==========
 
-If enabled, you'll see a popup as shown below when initiating a workflow 
+If enabled, you'll see a popup as shown below when initiating a workflow
 transition.
 
-.. image:: docs/screenshot-wfcomment.jpg
+.. image:: https://raw.github.com/collective/collective.wfcomment/master/docs/screenshot-wfcomment.jpg
 
 
 Requirements

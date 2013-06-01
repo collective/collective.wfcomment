@@ -4,7 +4,8 @@ Changelog
 2.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Updated README and CHANGES to be correctly rendered on pypi.
+  [saily]
 
 
 2.1.5 (2013-05-31)
@@ -97,12 +98,13 @@ Changelog
 2.0 (2011-04-28)
 ----------------
 
-Complete rewrite :
+Complete rewrite:
 
-  * uses ajax internationalized form,
-  * allows to select a list of transitions,
-  * kss compliant.
-  [vincentfretin, thomasdesvenain]
+- uses ajax internationalized form,
+- allows to select a list of transitions,
+- kss compliant.
+
+[vincentfretin, thomasdesvenain]
 
 
 1.0b2 - 2009-08-31
